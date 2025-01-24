@@ -47,3 +47,24 @@ class LinkedList:
             current_node = current_node.next
 
         current_node.next = new_node
+
+    def print_list(self):
+        current_node = self.head
+        while current_node:
+            print(current_node.data, end="")
+            if current_node.next:
+                print(" -> ", end="")
+            current_node = current_node.next
+
+    def transfer_from_list_to_linked_list(self, list_data):
+        if not list_data:
+            self.head = None
+            return
+
+        self.head = Node(list_data[0])
+        current_node = self.head
+
+        for i in list_data[1:]:
+            new_node = Node(i)
+            current_node.next = new_node
+            current_node = current_node.next
